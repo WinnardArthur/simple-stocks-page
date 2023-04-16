@@ -1,11 +1,15 @@
+import { useState } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
 import { MdMessage } from 'react-icons/md';
 import { BsFillBellFill } from 'react-icons/bs';
 import { HiCurrencyDollar } from 'react-icons/hi';
 import { AiFillCaretDown } from 'react-icons/ai';
-import Link from 'next/link'
+import Link from 'next/link';
+
 
 export default function Sidebar() {
+  const [activeLink, setActiveLink] = useState(1);
+
   return (
     <div className='bg-primary-color w-[16rem] h-full fixed top-0 lg:top-auto lg:relative z-[10]'>
       <div className='w-full h-full text-gray-100'>
@@ -20,7 +24,7 @@ export default function Sidebar() {
           </div>
         </div>
 
-        <Link href="#" className='flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500'>
+        <Link onClick={() => setActiveLink(1)} href="#" className={`${activeLink === 1 ? 'bg-[rgb(1,33,64)]' : ''} flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500`}>
           <div className='flex items-center'>
             <MdMessage className='text-xl'/>
             <p className='ml-2'>Discussion Forum</p>
@@ -30,44 +34,44 @@ export default function Sidebar() {
           </div>
         </Link>
 
-        <Link href="#" className='flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500'>
+        <Link onClick={() => setActiveLink(2)} href="#" className={`${activeLink === 2 ? 'bg-[rgb(1,33,64)]' : ''} flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500`}>
           <div className='flex items-center'>
             <HiCurrencyDollar className='text-xl'/>
             <p className='ml-2'>Market Stories</p>
           </div>
         </Link>
 
-        <Link href="#" className='flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500'>
+        <Link onClick={() => setActiveLink(3)} href="#" className={`${activeLink === 3 ? 'bg-[rgb(1,33,64)]' : ''} flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500`}>
           <div className='flex items-center'>
             <p className='ml-[1.8rem]'>Sentiment</p>
           </div>
         </Link>
 
-        <Link href="#" className='flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500'>
+        <Link onClick={() => setActiveLink(4)} href="#" className={`${activeLink === 4 ? 'bg-[rgb(1,33,64)]' : ''} flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500`}>
           <div className='flex items-center'>
             <p className='ml-[1.8rem]'>Market</p>
           </div>
         </Link>
 
-        <Link href="#" className='flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500'>
+        <Link onClick={() => setActiveLink(5)} href="#" className={`${activeLink === 5 ? 'bg-[rgb(1,33,64)]' : ''} flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500`}>
           <div className='flex items-center'>
             <p className='ml-[1.8rem]'>Sector</p>
           </div>
         </Link>
 
-        <Link href="#" className='flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500'>
+        <Link onClick={() => setActiveLink(6)} href="#" className={`${activeLink === 6 ? 'bg-[rgb(1,33,64)]' : ''} flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500`}>
           <div className='flex items-center'>
             <p className='ml-[1.8rem]'>Watchlist</p>
           </div>
         </Link>
 
-        <Link href="#" className='flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500'>
+        <Link onClick={() => setActiveLink(7)} href="#" className={`${activeLink === 7 ? 'bg-[rgb(1,33,64)]' : ''} flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500`}>
           <div className='flex items-center'>
             <p className='ml-[1.8rem]'>Events</p>
           </div>
         </Link>
 
-        <Link href="#" className='flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500'>
+        <Link onClick={() => setActiveLink(8)} href="#" className={`${activeLink === 8 ? 'bg-[rgb(1,33,64)]' : ''}  flex items-center justify-between pl-4 pr-2 py-[.5rem] border-gray-500`}>
           <div className='flex items-center'>
             <p className='ml-[1.8rem]'>News/Interview</p>
           </div>
