@@ -5,7 +5,7 @@ import StockValues from '@/components/StockValues';
 import DiscussionForum from '@/components/DiscussionForum';
 import Head from 'next/head';
 import MarketStories from '@/components/MarketStories';
-import { AiFillCaretRight } from 'react-icons/ai';
+import { AiFillCaretRight, AiOutlinePlus } from 'react-icons/ai';
 import Sidebar from '@/components/Sidebar';
 import Menubar from '@/components/Menubar';
 import { deviceWidth } from '../constants';
@@ -77,6 +77,10 @@ export default function Home({ imagesData }) {
         </div>
 
         <Menubar />
+
+        <button className='text-white bg-primary-color w-12 h-12 rounded-full z-[99] flex items-center justify-center fixed right-6 bottom-14 lg:bottom-4'>
+          <AiOutlinePlus className='text-[1.5rem] shadow-xl drop-shadow-lg shadow-primary-color'/>
+        </button>
       </main>
     </>
   )
