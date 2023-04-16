@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import { FiSearch } from 'react-icons/fi';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
@@ -7,6 +8,20 @@ import { FiShare2} from 'react-icons/fi';
 import { Numeral } from 'react-numeral';
 
 export default function DiscussionForum({ discussionData }) {
+    const [likes, setLikes] = useState([1]);
+
+    // Set favorite
+    const handleLikes = (id) => {
+        console.log('id', id)
+        if(likes.includes(id)) {
+            setLikes(likes.filter(like => like !== id))
+        } else {
+            setLikes(prevLikes => ([...new Set(prevLikes), id]))
+        }
+    }
+
+    console.log('likes', likes);
+
   return (
     <div>
         <h2 className='hidden md:block text-red-400 font-medium text-xl px-4 py-3'>DISCUSSION FORUM</h2>
@@ -59,8 +74,12 @@ export default function DiscussionForum({ discussionData }) {
                                     </p>
 
                                     <div className='flex justify-between mt-4 lg:mt-8'>
-                                        <button className='flex items-center gap-x-1'>
-                                            <AiFillHeart className='text-red-600 lg:text-2xl'/>
+                                        <button className='flex items-center gap-x-1' onClick={() => handleLikes(data.id)}>
+                                            {likes.includes(data.id) ?
+                                                <AiFillHeart className='text-red-600 lg:text-2xl'/>
+                                                :
+                                                <AiOutlineHeart className='text-gray-600 lg:text-2xl'/>
+                                            }
                                             <h6 className='text-[.8rem] lg:text-[.9rem] font-medium text-gray-600'>
                                                 <Numeral value={data.likes} format="0a"/>
                                             </h6>
