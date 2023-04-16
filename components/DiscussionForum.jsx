@@ -26,20 +26,21 @@ export default function DiscussionForum({ discussionData }) {
 
             <div className='max-h-screen overflow-y-auto sm-scrollbar pr-2'>
                 {
-                    discussionData?.map((data) => (
-                        <div key={data.id} className='relative mb-8 bg-white shadow shadow-gray-400 drop-shadow-xl rounded-md pt-[3rem] pb-[1rem]'>
+                    discussionData?.map((data, index) => (
+                        <div key={data.id} className='relative mb-8 bg-white shadow shadow-gray-400 drop-shadow-xl rounded-md pt-[.1rem] pb-[1rem]'>
                             <p className='absolute text-blue-400 right-4 top-4 text-[.84rem] sm:text-sm cursor-pointer font-medium'>
                                 {data.createdAt} ago
                             </p>
                             {
-                                <div className='flex justify-center'>
+                                index === 0 &&
+                                <div className='flex justify-center pt-[3rem]'>
                                     <div className='relative w-[70%] lg:w-[60%] h-[6rem] lg:h-[8rem]'>
                                         <Image src='/images/infobeam3.jpg' fill className='object-cover'/>
                                     </div>
                                 </div>
                             }
                             
-                            <div className='flex justify-between gap-x-4 px-2 lg:px-8 mt-2 lg:mt-6'>
+                            <div className='flex justify-between gap-x-2 px-2 lg:px-4 mt-2 lg:mt-6'>
                                 <div className='flex w-[3rem] h-[3rem] relative'>
                                     <Image 
                                         fill 
@@ -50,7 +51,7 @@ export default function DiscussionForum({ discussionData }) {
                                 
                                 <div className='flex-1 pt-2'>
                                     <div className='flex items-center'>
-                                        <h5 className='font-medium text-gray-600 text-[.85rem] lg:text-[.9rem]  mr-4 lg:mr-8'>Lorem Ipsum</h5>
+                                        <h5 className='font-medium text-gray-600 text-[.85rem] lg:text-[.9rem]  mr-4 lg:mr-6'>Lorem Ipsum</h5>
                                         <button className='rounded-[5rem] px-3 lg:px-4 text-white text-[.8rem] lg:text-[.85rem] py-[0.2rem] font-medium' style={{backgroundColor: data.color}}>Sector 1</button>
                                     </div>
                                     <p className='text-gray-600 font-medium text-[.85rem] lg:text-[.9rem] mt-3 lg:mt-6'>
@@ -61,19 +62,19 @@ export default function DiscussionForum({ discussionData }) {
                                         <button className='flex items-center gap-x-1'>
                                             <AiFillHeart className='text-red-600 lg:text-2xl'/>
                                             <h6 className='text-[.8rem] lg:text-[.9rem] font-medium text-gray-600'>
-                                                {Numeral(Number(data.likes))}
+                                                <Numeral value={data.likes} format="0a"/>
                                             </h6>
                                         </button>
                                         <button className='flex items-center gap-x-1'>
                                             <MdOutlineVisibility className='text-gray-600 lg:text-2xl'/>
                                             <h6 className='text-[.8rem] lg:text-[.9rem] font-medium text-gray-600'>
-                                                {data.views} Views
+                                            <Numeral value={data.views} format="0a"/> Views
                                             </h6>
                                         </button>
                                         <button className='flex items-center gap-x-1'>
                                             <BiComment className='text-gray-600 lg:text-2xl'/>
                                             <h6 className='text-[.8rem] lg:text-[.9rem] font-medium text-gray-600'>
-                                                {data.comments} Comments
+                                            <Numeral value={data.comments} format="0a"/> Comments
                                             </h6>
                                         </button>
                                         <button className='flex items-center gap-x-1'>
