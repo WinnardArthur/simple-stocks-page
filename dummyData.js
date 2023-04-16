@@ -108,7 +108,7 @@ export const stockValuesData = [
 export const marketStories = [
     {
         id: 1,
-        img: ' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDdE33YA_L80j0_Y18aPr4ZvdfwZJLmFU72w&usqp=CAU',
+        img: '/images/market_stocks.jpg',
         text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
     },
     {
@@ -123,12 +123,12 @@ export const marketStories = [
     },
     {
         id: 4,
-        img: ' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDdE33YA_L80j0_Y18aPr4ZvdfwZJLmFU72w&usqp=CAU',
+        img: '/images/market_stocks.jpg',
         text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
     },
     {
         id: 5,
-        img: ' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDdE33YA_L80j0_Y18aPr4ZvdfwZJLmFU72w&usqp=CAU',
+        img: '/images/market_stocks.jpg',
         text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
     },
     {
