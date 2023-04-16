@@ -13,6 +13,18 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .sm-scrollbar::-webkit-scrollbar {
+    @apply w-[8px] ml-10
+  }
+
+  .sm-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-300 rounded-[5rem]
+}
+
+  .sm-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-white rounded-[5rem] border-2 border-red-400 shadow-2xl  drop-shadow-2xl
+}
 }
 
 * {
