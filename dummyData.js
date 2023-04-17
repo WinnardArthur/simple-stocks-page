@@ -165,7 +165,7 @@ export const discussionData = [
     {
         id: 3,
         name: 'Lorem Ipsum',
-        profileImg: "https://static.vecteezy.com/system/resources/thumbnails/002/002/257/small_2x/beautiful-woman-avatar-character-icon-free-vector.jpg",
+        profileImg: "https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small/man-avatar-icon-free-vector.jpg",
         color: 'rgb(234 179 8)',
         text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is',
         likes: '6300',
@@ -176,7 +176,7 @@ export const discussionData = [
     {
         id: 4,
         name: 'Lorem Ipsum',
-        profileImg: "https://static.vecteezy.com/system/resources/thumbnails/002/002/257/small_2x/beautiful-woman-avatar-character-icon-free-vector.jpg",
+        profileImg: "https://static.vecteezy.com/system/resources/thumbnails/002/002/247/small/beautiful-black-woman-avatar-character-icon-free-vector.jpg",
         color: 'rgb(30 64 175)',
         text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is',
         likes: '75000',
@@ -187,7 +187,7 @@ export const discussionData = [
     {
         id: 5,
         name: 'Lorem Ipsum',
-        profileImg: "https://static.vecteezy.com/system/resources/thumbnails/002/002/257/small_2x/beautiful-woman-avatar-character-icon-free-vector.jpg",
+        profileImg: "https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small/beautiful-latin-woman-avatar-character-icon-free-vector.jpg",
         color: 'rgb(234 179 8)',
         text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is',
         likes: '10000',
