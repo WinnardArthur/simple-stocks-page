@@ -76,6 +76,7 @@ export default function DiscussionForum({ screenSize, discussionData }) {
                       src="/images/infobeam3.jpg"
                       fill
                       className="object-contain"
+                      alt="Infobeam"
                     />
                   </div>
                 </div>

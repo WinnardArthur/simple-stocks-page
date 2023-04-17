@@ -34,6 +34,7 @@ export default function MarketStories({ screenSize, marketStories }) {
             animate={screenSize <= deviceWidth.md ? "" : "animate"}
             whileInView={screenSize <= deviceWidth.md ? "animate" : ""}
             viewport={{ once: false, amount: 0.5 }}
+            key={story.id}
           >
             <div
               variants={marketStoryVariants}
