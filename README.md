@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project, a simple stocks page.
+This is a [Next.js](https://nextjs.org/) project, a **simple stocks page**.
+
+## Technical Specifications
+
+* Frontend framework - Next JS.
+* Styling/CSS library - Tailwindcss.
+* Icons - React icons.
+* Deployment - Vercel
+
 
 ## Getting Started
 
