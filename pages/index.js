@@ -17,8 +17,6 @@ export default function Home({ imagesData }) {
   const [activeTab, setActiveTab] = useState(1);
   const [screenSize, setScreenSize] = useState(undefined);
 
-  console.log('imagesData', imagesData);
-
   // Get the size of screen.
   useEffect(() => {
     const handleResize = ()  => setScreenSize(window.innerWidth);
@@ -51,14 +49,28 @@ export default function Home({ imagesData }) {
 
       <main>
         <Header />
-        <StockValues stockValuesData={stockValuesData}/>
-        <FeaturedCompanies imagesData={imagesData}/>
+        <StockValues stockValuesData={stockValuesData} />
+        <FeaturedCompanies imagesData={imagesData} />
 
-        <button onClick={() => setShowSidebar(!showSideBar)} className={`bg-primary-color text-white ${showSideBar ? 'left-[16rem]' : 'left-0'} top-[33%] lg:top-1/2 z-[999] fixed py-8 rounded-tr rounded-br`}><AiFillCaretRight className='text-lg'/></button>
+        <button 
+          onClick={() => setShowSidebar(!showSideBar)} 
+          className={`bg-primary-color text-white ${showSideBar ? 'left-[16rem]' : 'left-0'} top-[33%] lg:top-1/2 z-[999] fixed py-8 rounded-tr rounded-br`}><AiFillCaretRight className='text-lg'
+        />
+        </button>
         
         <div className='md:hidden flex'>
-          <button onClick={() => setActiveTab(1)} className={`${activeTab === 1 ? 'bg-[rgb(1,33,64)] border-b-2 border-red-500' : 'bg-primary-color'} w-1/2 py-2 font-medium text-gray-100`}>Discussion Forum</button>
-          <button onClick={() => setActiveTab(2)} className={`${activeTab === 2 ? 'bg-[rgb(1,33,64)] border-b-2 border-red-500' : 'bg-primary-color'} w-1/2 py-2 font-medium text-gray-100`}>Market Stories</button>
+          <button 
+            onClick={() => setActiveTab(1)} 
+            className={`${activeTab === 1 ? 'bg-[rgb(1,33,64)] border-b-2 border-red-500' : 'bg-primary-color'} w-1/2 py-2 font-medium text-gray-100`}
+          >
+            Discussion Forum
+          </button>
+          <button 
+            onClick={() => setActiveTab(2)} 
+            className={`${activeTab === 2 ? 'bg-[rgb(1,33,64)] border-b-2 border-red-500' : 'bg-primary-color'} w-1/2 py-2 font-medium text-gray-100`}
+          >
+            Market Stories
+          </button>
         </div>
         
         <div className='flex justify-between md:gap-x-4 xl:gap-x-12 bg-zinc-100 pb-[5rem]'>
@@ -72,7 +84,7 @@ export default function Home({ imagesData }) {
           </div>
           
           <div className={`w-full md:w-[40%] lg:w-[46%] lg:pr-[2rem] ${activeTab === 2 ? 'block' : activeTab === undefined ? 'block' : 'hidden'}`}>
-            <MarketStories marketStories={marketStories} />
+            <MarketStories screenSize={screenSize} marketStories={marketStories} />
           </div>
         </div>
 
@@ -86,7 +98,7 @@ export default function Home({ imagesData }) {
   )
 }
 
-
+// Fetch and pre-render dummy data
 export async function getStaticProps () {
   return {
     props: {

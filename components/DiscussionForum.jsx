@@ -6,8 +6,10 @@ import { MdOutlineVisibility } from 'react-icons/md';
 import { BiComment} from 'react-icons/bi';
 import { FiShare2} from 'react-icons/fi';
 import { Numeral } from 'react-numeral';
+import { motion } from 'framer-motion';
+import { deviceWidth } from '../constants';
 
-export default function DiscussionForum({ discussionData }) {
+export default function DiscussionForum({ screenSize, discussionData }) {
     const [likes, setLikes] = useState([1]);
 
     // Set favorite
@@ -20,10 +22,8 @@ export default function DiscussionForum({ discussionData }) {
         }
     }
 
-    console.log('likes', likes);
-
   return (
-    <div>
+    <motion.div initial={{opacity: 0}} whileInView={{opacity: 1,  transition: {duration: 2, type: 'spring' }, once: screenSize <= deviceWidth.md ? true : false}}>
         <h2 className='hidden md:block text-red-400 font-medium text-xl px-4 md:pl-6 py-3'>DISCUSSION FORUM</h2>
 
         <div className='px-1 lg:px-4 pl-[1.6rem] md:pl-[2rem] lg:pl-[3.5rem] pb-5'>
@@ -108,6 +108,6 @@ export default function DiscussionForum({ discussionData }) {
                 }
             </div>
         </div>
-    </div>
+    </motion.div>
   )
 }
