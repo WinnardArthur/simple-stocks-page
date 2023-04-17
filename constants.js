@@ -1,3 +1,4 @@
+// Width of current device
 export const deviceWidth = {
     sm: 640,
     md: 768,

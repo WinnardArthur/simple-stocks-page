@@ -1,16 +1,20 @@
-import { useEffect, useState } from 'react';
-import FeaturedCompanies from '@/components/FeaturedCompanies';
-import Header from '@/components/Header';
-import StockValues from '@/components/StockValues';
-import DiscussionForum from '@/components/DiscussionForum';
-import Head from 'next/head';
-import MarketStories from '@/components/MarketStories';
-import { AiFillCaretRight, AiOutlinePlus } from 'react-icons/ai';
-import Sidebar from '@/components/Sidebar';
-import Menubar from '@/components/Menubar';
-import { deviceWidth } from '../constants';
-import { imagesData, stockValuesData, marketStories, discussionData } from '@/dummyData';
-
+import { useEffect, useState } from "react";
+import FeaturedCompanies from "@/components/FeaturedCompanies";
+import Header from "@/components/Header";
+import StockValues from "@/components/StockValues";
+import DiscussionForum from "@/components/DiscussionForum";
+import Head from "next/head";
+import MarketStories from "@/components/MarketStories";
+import { AiFillCaretRight, AiOutlinePlus } from "react-icons/ai";
+import Sidebar from "@/components/Sidebar";
+import Menubar from "@/components/Menubar";
+import { deviceWidth } from "../constants";
+import {
+  imagesData,
+  stockValuesData,
+  marketStories,
+  discussionData,
+} from "@/dummyData";
 
 export default function Home({ imagesData }) {
   const [showSideBar, setShowSidebar] = useState(false);
@@ -19,24 +23,23 @@ export default function Home({ imagesData }) {
 
   // Get the size of screen.
   useEffect(() => {
-    const handleResize = ()  => setScreenSize(window.innerWidth);
+    const handleResize = () => setScreenSize(window.innerWidth);
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // If device is not a mobile device, set active to undefined;
   useEffect(() => {
-    if(screenSize > deviceWidth.md) {
-      setActiveTab(undefined)
+    if (screenSize > deviceWidth.md) {
+      setActiveTab(undefined);
     } else {
-      setActiveTab(1)
+      setActiveTab(1);
     }
-  }, [screenSize])
-
+  }, [screenSize]);
 
   return (
     <>
@@ -52,58 +55,91 @@ export default function Home({ imagesData }) {
         <StockValues stockValuesData={stockValuesData} />
         <FeaturedCompanies imagesData={imagesData} />
 
-        <button 
-          onClick={() => setShowSidebar(!showSideBar)} 
-          className={`bg-primary-color text-white ${showSideBar ? 'left-[16rem]' : 'left-0'} top-[33%] lg:top-1/2 z-[999] fixed py-8 rounded-tr rounded-br`}><AiFillCaretRight className='text-lg'
-        />
+        <button
+          onClick={() => setShowSidebar(!showSideBar)}
+          className={`bg-primary-color text-white ${
+            showSideBar ? "left-[16rem]" : "left-0"
+          } top-[33%] lg:top-1/2 z-[999] fixed py-8 rounded-tr rounded-br`}
+        >
+          <AiFillCaretRight className="text-lg" />
         </button>
-        
-        <div className='md:hidden flex'>
-          <button 
-            onClick={() => setActiveTab(1)} 
-            className={`${activeTab === 1 ? 'bg-[rgb(1,33,64)] border-b-2 border-red-500' : 'bg-primary-color'} w-1/2 py-2 font-medium text-gray-100`}
+
+        <div className="md:hidden flex">
+          <button
+            onClick={() => setActiveTab(1)}
+            className={`${
+              activeTab === 1
+                ? "bg-[rgb(1,33,64)] border-b-2 border-red-500"
+                : "bg-primary-color"
+            } w-1/2 py-2 font-medium text-gray-100`}
           >
             Discussion Forum
           </button>
-          <button 
-            onClick={() => setActiveTab(2)} 
-            className={`${activeTab === 2 ? 'bg-[rgb(1,33,64)] border-b-2 border-red-500' : 'bg-primary-color'} w-1/2 py-2 font-medium text-gray-100`}
+          <button
+            onClick={() => setActiveTab(2)}
+            className={`${
+              activeTab === 2
+                ? "bg-[rgb(1,33,64)] border-b-2 border-red-500"
+                : "bg-primary-color"
+            } w-1/2 py-2 font-medium text-gray-100`}
           >
             Market Stories
           </button>
         </div>
-        
-        <div className='flex justify-between md:gap-x-4 xl:gap-x-12 bg-zinc-100 pb-[5rem]'>
-          {showSideBar && 
+
+        <div className="flex justify-between md:gap-x-4 xl:gap-x-12 bg-zinc-100 pb-[5rem]">
+          {showSideBar && (
             <div>
               <Sidebar />
             </div>
-          }
-          <div className={`w-full md:w-[60%] lg:w-[54%] ${activeTab === 1 ? 'block' : activeTab === undefined ? 'block' : 'hidden'}`}>
-            <DiscussionForum screenSize={screenSize} discussionData={discussionData} />
+          )}
+          <div
+            className={`w-full md:w-[60%] lg:w-[54%] ${
+              activeTab === 1
+                ? "block"
+                : activeTab === undefined
+                ? "block"
+                : "hidden"
+            }`}
+          >
+            <DiscussionForum
+              screenSize={screenSize}
+              discussionData={discussionData}
+            />
           </div>
-          
-          <div className={`w-full md:w-[40%] lg:w-[46%] lg:pr-[2rem] ${activeTab === 2 ? 'block' : activeTab === undefined ? 'block' : 'hidden'}`}>
-            <MarketStories screenSize={screenSize} marketStories={marketStories} />
+
+          <div
+            className={`w-full md:w-[40%] lg:w-[46%] lg:pr-[2rem] ${
+              activeTab === 2
+                ? "block"
+                : activeTab === undefined
+                ? "block"
+                : "hidden"
+            }`}
+          >
+            <MarketStories
+              screenSize={screenSize}
+              marketStories={marketStories}
+            />
           </div>
         </div>
 
         <Menubar />
 
-        <button className='text-white bg-primary-color w-12 h-12 rounded-full z-[99] flex items-center justify-center fixed right-6 bottom-14 md:bottom-4'>
-          <AiOutlinePlus className='text-[1.5rem] shadow-xl drop-shadow-lg shadow-primary-color'/>
+        <button className="text-white bg-primary-color w-12 h-12 rounded-full z-[99] flex items-center justify-center fixed right-6 bottom-14 md:bottom-4">
+          <AiOutlinePlus className="text-[1.5rem] shadow-xl drop-shadow-lg shadow-primary-color" />
         </button>
       </main>
     </>
-  )
+  );
 }
 
 // Fetch and pre-render dummy data
-export async function getStaticProps () {
+export async function getStaticProps() {
   return {
     props: {
       imagesData,
-      stockValuesData
-    }
-  }
+      stockValuesData,
+    },
+  };
 }
