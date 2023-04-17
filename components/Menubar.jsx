@@ -8,7 +8,7 @@ export default function Menubar() {
     const [active, setActive] = useState('home');
 
   return (
-    <div className='fixed bottom-0 left-0 right-0 text-gray-100 bg-primary-color block lg:hidden'>
+    <div className='fixed bottom-0 left-0 right-0 text-gray-100 bg-primary-color block md:hidden'>
         <div className='flex items-center'>
             <button onClick={() => setActive('dashboard')} className={`${active === 'dashboard' ? 'border-b-2 border-red-500' : ''} py-3 w-[20%] flex justify-center`}>
                 <MdOutlineDashboard className='text-[1.3rem]'/>

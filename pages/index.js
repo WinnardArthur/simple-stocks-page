@@ -32,7 +32,7 @@ export default function Home({ imagesData }) {
 
   // If device is not a mobile device, set active to undefined;
   useEffect(() => {
-    if(screenSize > deviceWidth.lg) {
+    if(screenSize > deviceWidth.md) {
       setActiveTab(undefined)
     } else {
       setActiveTab(1)
@@ -61,24 +61,24 @@ export default function Home({ imagesData }) {
           <button onClick={() => setActiveTab(2)} className={`${activeTab === 2 ? 'bg-[rgb(1,33,64)] border-b-2 border-red-500' : 'bg-primary-color'} w-1/2 py-2 font-medium text-gray-100`}>Market Stories</button>
         </div>
         
-        <div className='flex justify-between gap-x-12 bg-zinc-100 pb-[5rem]'>
+        <div className='flex justify-between md:gap-x-4 xl:gap-x-12 bg-zinc-100 pb-[5rem]'>
           {showSideBar && 
             <div>
               <Sidebar />
             </div>
           }
-          <div className={`w-full lg:w-[54%] ${activeTab === 1 ? 'block' : activeTab === undefined ? 'block' : 'hidden'}`}>
+          <div className={`w-full md:w-[60%] lg:w-[54%] ${activeTab === 1 ? 'block' : activeTab === undefined ? 'block' : 'hidden'}`}>
             <DiscussionForum screenSize={screenSize} discussionData={discussionData} />
           </div>
           
-          <div className={`w-full lg:w-[46%] lg:pr-[2rem] ${activeTab === 2 ? 'block' : activeTab === undefined ? 'block' : 'hidden'}`}>
+          <div className={`w-full md:w-[40%] lg:w-[46%] lg:pr-[2rem] ${activeTab === 2 ? 'block' : activeTab === undefined ? 'block' : 'hidden'}`}>
             <MarketStories marketStories={marketStories} />
           </div>
         </div>
 
         <Menubar />
 
-        <button className='text-white bg-primary-color w-12 h-12 rounded-full z-[99] flex items-center justify-center fixed right-6 bottom-14 lg:bottom-4'>
+        <button className='text-white bg-primary-color w-12 h-12 rounded-full z-[99] flex items-center justify-center fixed right-6 bottom-14 md:bottom-4'>
           <AiOutlinePlus className='text-[1.5rem] shadow-xl drop-shadow-lg shadow-primary-color'/>
         </button>
       </main>
