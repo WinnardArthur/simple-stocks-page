@@ -4,6 +4,7 @@ This is a [Next.js](https://nextjs.org/) project, a **simple stocks page**.
 
 * Frontend framework - Next JS.
 * Styling/CSS library - Tailwindcss.
+* Animation library - Framer motion
 * Icons - React icons.
 * Deployment - Vercel
 
